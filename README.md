@@ -1,5 +1,7 @@
 # elm-history
 
+[![Build Status](https://semaphoreci.com/api/v1/elm-community/elm-history/branches/integration-tests/badge.svg)](https://semaphoreci.com/elm-community/elm-history)
+
 This library contains a set of the bindings to the HTML5 History API methods.
 This allows you to programmatically travel backwards and forwards in the
 browser history as well as detect changes to the url path or hash.
@@ -50,3 +52,10 @@ You can use tasks in the `Location` module to get the current location as
 a record that reflects the various parts of the URL.
 
 You can also reload the current page, or load a new URL.
+
+## Testing
+
+This library uses integration tests written in Hound and run in docker-compose.
+
+- Add tests in `/test/integration/suite/test`
+- Run tests by running `make test-integration`
