@@ -17,6 +17,17 @@ import Task exposing (Task)
 
 import Native.History
 
+{-| Sets the path fragment ("hash") of the url.
+This directly corresponds to setting the `location.hash`
+value. If the new value differs from the old one,
+doing this will push a new state to the history stack.
+
+    setHash "stringified-state"
+-}
+setHash : String -> Task error ()
+setHash = Native.History.setHash
+
+
 {-| Sets the path of the url to the given path.
 If you are familiar with the HTML5 History API,
 `setPath` calls `history.pushState()` which means
