@@ -2,7 +2,7 @@ module History where
 {-| Elm bindings to HTML5 History API.
 
 # Changing the URL path
-@docs setPath, replacePath
+@docs setPath, replacePath, setHash
 
 # Going back and forth in the browser history
 @docs back, forward, go
