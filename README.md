@@ -1,6 +1,6 @@
 # elm-history
 
-[![Build Status](https://semaphoreci.com/api/v1/elm-community/elm-history/branches/integration-tests/badge.svg)](https://semaphoreci.com/elm-community/elm-history)
+[![Build Status](https://semaphoreci.com/api/v1/elm-community/elm-history/branches/master/badge.svg)](https://semaphoreci.com/elm-community/elm-history)
 
 This library contains a set of the bindings to the HTML5 History API methods.
 This allows you to programmatically travel backwards and forwards in the
