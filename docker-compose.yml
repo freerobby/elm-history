@@ -1,0 +1,29 @@
+test_app:
+  build: .
+  dockerfile: test_app.dockerfile
+  ports:
+   - "8000:8000"
+
+webdriver:
+  image: selenium/standalone-firefox
+  links:
+    - test_app
+  ports:
+    - "4444:4444"
+
+test_integration:
+  build: ./test/integration/suite
+  links:
+    - test_app
+    - webdriver
+  volumes:
+    - ./test/integration/suite:/usr/src
+  working_dir: /usr/src
+  command: ./run_suite.sh
+  environment:
+    APP_HOST: test_app
+    APP_PORT: 8000
+    WEBDRIVER_HOST: webdriver
+    WEBDRIVER_PORT: 4444
+
+
