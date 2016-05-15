@@ -1,8 +1,7 @@
-module Location
-    ( Location, location
+module Location exposing ( Location, location
     , reload, Source(ForceServer, AllowCache)
     , assign, replace
-    ) where
+    ) -- where
 
 
 {-| Facilities related to the browser's `window.location` object.
@@ -30,7 +29,7 @@ type alias Location =
 
 
 {-| A task which, when executed, gets the browser's `window.location` object. -}
-location : Task x Location
+location : Task Never Location
 location = Native.Location.location
 
 

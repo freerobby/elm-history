@@ -1,4 +1,4 @@
-module History where
+module History exposing (..) -- where
 {-| Elm bindings to HTML5 History API.
 
 # Changing the URL path
@@ -8,13 +8,11 @@ module History where
 @docs back, forward, go
 
 # URL path as input
-@docs path, hash, href, length
+@docs getPath, getHash, getHref, getLength
 
 -}
 
-import Signal
 import Task exposing (Task)
-
 import Native.History
 
 {-| Sets the path fragment ("hash") of the url.
@@ -24,7 +22,7 @@ doing this will push a new state to the history stack.
 
     setHash "stringified-state"
 -}
-setHash : String -> Task error ()
+setHash : String -> Task Never ()
 setHash = Native.History.setHash
 
 
@@ -33,12 +31,12 @@ If you are familiar with the HTML5 History API,
 `setPath` calls `history.pushState()` which means
 that in performing this task, the browser history
 moves forward. In other words, pressing the back
-button will lead you where you were prior to performing
+button will lead you you were prior to performing
 this task.
 
     setPath "/blog.html"
 -}
-setPath : String -> Task error ()
+setPath : String -> Task Never ()
 setPath = Native.History.setPath
 
 
@@ -54,7 +52,7 @@ and you do not wish to clutter the back button. If you
 want to simply point users towards a different page,
 consider using `setPath`.
 -}
-replacePath : String -> Task error ()
+replacePath : String -> Task Never ()
 replacePath = Native.History.replacePath
 
 
@@ -66,7 +64,7 @@ history back by the absolute value of that amount. This
 results in a no-op if there are no available pages to
 go to in the browser history.
 -}
-go : Int -> Task error ()
+go : Int -> Task Never ()
 go = Native.History.go
 
 
@@ -74,22 +72,22 @@ go = Native.History.go
 to pressing the back button on the browser or calling
 `go -1`.
 -}
-back : Task error ()
+back : Task Never ()
 back = Native.History.back
 
 {-| Moves the browser history forward by 1. Equivalent
 to pressing the forward button on the browser or calling
 `go 1`.
 -}
-forward : Task error ()
+forward : Task Never ()
 forward = Native.History.forward
 
 {-| The length of the browser history. This number does not
 state where you are in relation to the browser history but
 simply how long that history is.
 -}
-length : Signal Int
-length = Native.History.length
+getLength : Task Never Int
+getLength = Native.History.getLength
 
 {-| The current hash value of the url. The value is updated
 whenever it is changed, usually through interaction.
@@ -101,8 +99,8 @@ depending on the state of the hash.
 
 Hashes are of the form: `#myTag`
 -}
-hash : Signal String
-hash = Native.History.hash
+getHash : Task Never String
+getHash = Native.History.getHash
 
 {-| The current path value of the url. The value is updated
 whenever it is changed, either through interaction or code.
@@ -114,8 +112,8 @@ appropriate information given the path.
 
 Paths are of the form: `/myPath.html` or `/users/4873/profile.html`
 -}
-path : Signal String
-path = Native.History.path
+getPath : Task Never String
+getPath = Native.History.getPath
 
 {-| The current href value of the url. The value is updated
 whenever it is changed, either through interaction or code.
@@ -127,5 +125,5 @@ appropriate information given the href.
 
 Hrefs are of the form: `https://localhost:1337/myPath.html`
 -}
-href : Signal String
-href = Native.History.href
+getHref : Task Never String
+getHref = Native.History.getHref

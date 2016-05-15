@@ -4,7 +4,6 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import Task exposing (Task, succeed)
-import Effects exposing (Never)
 import History exposing (..)
 
 
