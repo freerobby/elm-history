@@ -1,4 +1,7 @@
-# elm-history
+# DEPRECATED: elm-history
+
+Use [elm-lang/navigation](http://package.elm-lang.org/packages/elm-lang/navigation/latest) instead.
+
 
 [![Build Status](https://semaphoreci.com/api/v1/elm-community/elm-history/branches/master/badge.svg)](https://semaphoreci.com/elm-community/elm-history)
 
